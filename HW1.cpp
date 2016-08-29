@@ -12,6 +12,23 @@ struct wordItem{
 	
 };
 
+
+/*
+
+* Function name: getStopWords
+
+* Purpose: read stop word list from file and store into vector
+
+* @param ignoreWordFile - filename (the file storing ignore words)
+
+* @param _vecIgnoreWords - store ignore words from the file (pass by reference)
+
+* @return - none
+
+* Note: The number of words is fixed to 50
+
+*/
+
 void getStopWords(char *ignoreWordFileName, vector<string>& _vecIgnoreWords);
 
 /*
@@ -52,7 +69,12 @@ const int STOPWORD_LIST_SIZE = 50;
 
 int main(int argc, char* argv[])
 {
-
+	int range = argv[1];
+	string mainFile = argv[2];
+	string ignoreFile = argv[3];
+	
+	vector<string> ignoredwords;
+	getStopWords(
 	vector<string> vecIgnoreWords(STOPWORD_LIST_SIZE);
 	
 	// verify we have the correct # of parameters, else throw error msg & return
