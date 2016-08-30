@@ -69,13 +69,6 @@ const int STOPWORD_LIST_SIZE = 50;
 
 int main(int argc, char* argv[])
 {
-	int range = argv[1];
-	string mainFile = argv[2];
-	string ignoreFile = argv[3];
-	
-	vector<string> ignoredwords;
-	getStopWords(
-	vector<string> vecIgnoreWords(STOPWORD_LIST_SIZE);
 	
 	// verify we have the correct # of parameters, else throw error msg & return
 	
@@ -91,7 +84,16 @@ int main(int argc, char* argv[])
 	
 	return 0;
 
-}
+	}
+	//end of parameter check --------------------------------------------------------------------
+	int range = stoi(argv[1]);
+	string mainFile = argv[2];
+	string ignoreFile = argv[3];
+	cout << range << " " << mainFile << " " << ignoreFile << endl;
+	vector<string> ignoredWords;
+	getStopWords(ignoreFile, ignoredWords);
+	//vector<string> vecIgnoreWords(STOPWORD_LIST_SIZE);
+	
 
 /* **********************************
 
@@ -102,15 +104,28 @@ Read words from HW1-HungerGames_edit.txt, store and count the words.
 2. Implement the three functions after the main() function seperately.
 
 ********************************** */
-return 0;
+	return 0;
 
 }
 
 void getStopWords(char *ignoreWordFileName, vector<string>& _vecIgnoreWords)
 
 {
-
-return;
+	string line;
+	thisfile.open(ignoreWordFileName);
+	if(thisfile.is_open())
+	{
+		while(getline(thisfile,	line)
+		{
+		_vecIgnoreWords.push_back(line);	
+		}
+	
+	}
+	else
+	{
+		cout << "File unable to open!" << endl;
+	}
+	return;
 
 }
 
@@ -118,14 +133,16 @@ bool isCommonWord(string word, vector<string>& _vecIgnoreWords)
 
 {
 
-return true;
+	return true;
 
 }
 
 void printTopN(wordItem wordItemList[], int topN)
 
 {
-
-return;
+	for(int x = 0 ; x<topN ; x++){
+		cout << wordItemList[x].word << " - " << wordItemList[x].count << endl;
+	}
+	return;
 
 }
