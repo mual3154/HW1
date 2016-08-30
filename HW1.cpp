@@ -93,6 +93,7 @@ int main(int argc, char* argv[])
 	vector<string> ignoredWords;
 	getStopWords(ignoreFile, ignoredWords);
 	//vector<string> vecIgnoreWords(STOPWORD_LIST_SIZE);
+	for
 	
 
 /* **********************************
