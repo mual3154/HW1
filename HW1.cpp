@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fstream>
 #include<sstream>
 #include<string>
 #include<cstdlib>
@@ -90,10 +91,9 @@ int main(int argc, char* argv[])
 	string mainFile = argv[2];
 	string ignoreFile = argv[3];
 	cout << range << " " << mainFile << " " << ignoreFile << endl;
-	vector<string> ignoredWords;
-	getStopWords(ignoreFile, ignoredWords);
-	//vector<string> vecIgnoreWords(STOPWORD_LIST_SIZE);
-	for
+	vector<string> vecIgnoreWords(STOPWORD_LIST_SIZE);
+	getStopWords(ignoreFile, vecIgnoreWords);
+	
 	
 
 /* **********************************
@@ -113,10 +113,10 @@ void getStopWords(char *ignoreWordFileName, vector<string>& _vecIgnoreWords)
 
 {
 	string line;
-	thisfile.open(ignoreWordFileName);
-	if(thisfile.is_open())
+	ignoreWordFileName.open(ignoreWordFileName);
+	if(ignoreWordFileName.is_open())
 	{
-		while(getline(thisfile,	line)
+		while(getline(cin, line))
 		{
 		_vecIgnoreWords.push_back(line);	
 		}
